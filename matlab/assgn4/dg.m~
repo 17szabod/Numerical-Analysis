@@ -1,0 +1,7 @@
+function [ output_args ] = g( x )
+%G dg(x)=g'(x)=s(x)
+output_args=sin(x);
+return
+
+end
+

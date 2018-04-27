@@ -1,0 +1,2 @@
+x = linspace(-1,1,50); plot(x,sin(x)); title('Sin(x) on [-1,1]')
+diary off

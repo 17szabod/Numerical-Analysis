@@ -1,0 +1,85 @@
+interpolator(1,10,@f,4)
+
+newY =
+
+   1.0e+03 *
+
+   8.757730391198070   0.510173794376414   0.010254248039437
+
+
+newY =
+
+   1.0e+03 *
+
+   1.221860236566171   0.074062155012885
+
+
+newY =
+
+     1.275331201725873e+02
+
+%^Divided Differences table (it's flipped sideways, it was the best way to
+%print)
+%Poor interpolation, not many points. Notice how the red (polynomial) and
+%green (cubic) overlap, shows that matlab uses not a knot and shows the
+%elementary logic behind cubic splines
+
+interpolator(1,10,@f,6)
+%Interpolant starts to clean up, all plots are apporaching the true value
+%in yellow -- shows my prediction was correct, error decreases very fast
+
+interpolator(1,10,@g,5)
+
+%Gets accurate very fast, as predicted in Question 2
+
+interpolator(1,10,@g,6)
+
+%Blue and green are approaching the true value yellow, while red is lagging
+%slightly behind, shows that Cheby and Spline interpolation are better
+
+interpolator(-3.99,20,@h,5)
+
+newY =
+
+   0.045051024060421   0.063012369511914   0.144538425582291   1.669265859850557
+
+
+newY =
+
+  -0.001497402705418  -0.004805971412318  -0.127113583515487
+
+
+newY =
+
+   0.000161576880072   0.005973000449235
+
+
+newY =
+
+    -2.422435835415990e-04
+
+%Red and green are a lot close to the true value that blue, although this
+%might be because of the low n, as CHebychev points work better with high n
+
+interpolator(-3.99,20,@h,20)
+
+%Blue (Chebychev) is still not very accurate, despite the high n, which I
+%did not predict, I would have expected this to converge the fastest.
+%Meanwhile red is doing very well
+
+interpolator(-5,5,@k,5)
+
+%Surprisingly accurate at low values, contrary to my beliefs... however is
+%reasonable as my calculations were an approximation as n goes to infty
+
+interpolator(-5,5,@k,20)
+
+%This function actually diverges as n grows large, as predicted! Red is the
+%first to diverge
+
+interpolator(-5,5,@k,60)
+
+%This is a function without red to show how the Chebychev points points
+%start to diverge (rather strangely) at n=60
+
+diary off

@@ -1,0 +1,100 @@
+[hermiteError,cubicError]=SplinePlotter(-5, 10, @f, @f, 5) %f'(x)=f(x), luckily
+
+hermiteError =
+
+     2.220340145512208e+03
+
+
+cubicError =
+
+     4.705461481877308e+03
+
+[hermiteError,cubicError]=SplinePlotter(0, 10, @f, @f, 4)
+
+hermiteError =
+
+     1.624610333005855e+03
+
+
+cubicError =
+
+     4.225331520344283e+03
+
+%Hermite simply looks so much better! Notice in the first image (n=5) how the red function seems to curve rather sharply. This is because it is local even more so that cubic splines, so it can change it's shape and direction suddeny
+%Another thing to note is how horrendous these errors are! Hermite error is always slightly lower, but further application with much higher value of n reveals that his function is converging very slowly (mostly because I bounded it at 10, in hindsight)
+%Also note that the ratio is almost exactly the same, near (1/5), as should be with the error formulae
+[hermiteError,cubicError]=SplinePlotter(0, 5, @g, @dg, 6)
+
+hermiteError =
+
+   0.002550479351134
+
+
+cubicError =
+
+   0.023413797521547
+
+[hermiteError,cubicError]=SplinePlotter(0, 5, @g, @dg, 5)
+
+hermiteError =
+
+   0.005910736701801
+
+
+cubicError =
+
+   0.068972011151630
+
+%Highlights very well where the function changes and where Hermite interpolation proves better
+%Also converges incredibly well, with hermite being inproportionally better thatn cubic
+[hermiteError,cubicError]=SplinePlotter(1, 10, @h, @dh, 10)
+
+hermiteError =
+
+     1.709420234896619e-05
+
+
+cubicError =
+
+     1.301701642655306e-04
+
+[hermiteError,cubicError]=SplinePlotter(1, 100, @h, @dh, 5)
+
+hermiteError =
+
+   0.168932022568802
+
+
+cubicError =
+
+   0.185984891730355
+
+%The second run is very interesting... Hermite is thrown off by the value at 20 while cubic stays on course
+%This is the first run where cubic was better
+%This could be attributed to locallity! The fact that the function acts strangely (unlike a cubic polynomial) on that interval in particular is highlighted by Hermite interpolation while Cubic Splines show it less by being less local and taking into consider
+[hermiteError,cubicError]=SplinePlotter(-5, 5, @k, @dk, 25)
+
+hermiteError =
+
+   0.134870007678192
+
+
+cubicError =
+
+   0.014295895295438
+
+[hermiteError,cubicError]=SplinePlotter(-1, 1, @k, @dk, 10)
+
+hermiteError =
+
+   0.036021847324654
+
+
+cubicError =
+
+   0.013922787167907
+
+%Very strange! The Cubic Hermite seems to get the derivative wrong, despite the fact that dk is completely correct!
+%I will take credit for it however because I did predict this would not converge
+%Also notice that the cubic spline interpolant is failing as well, just less visibly and less so
+diary off

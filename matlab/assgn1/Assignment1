@@ -1,0 +1,104 @@
+FixedPoint
+
+output =
+
+using cos(x)+x-x^2
+
+
+error = 
+
+  string
+
+    "over 100000000 steps, x right now is:1.1516, Last x was:0.23255"
+
+
+steps =
+
+   100000001
+
+
+x =
+
+    1.1516
+
+%This clearly diverged, even though I found
+%rate of convergence to be around .3
+FixedPoint
+
+output =
+
+using sqrt(cos(x))
+
+
+steps =
+
+    26
+
+
+x =
+
+    0.8241
+
+%Converged at linear speed
+%g'(r) is about -.0072
+FixedPoint
+
+output =
+
+using acos(x^2)
+
+
+error = 
+
+  string
+
+    "over 100000000 steps, x right now is:2.0717-3.4992i, Last x was:2.0717+3.4992i"
+
+
+steps =
+
+   100000001
+
+
+x =
+
+   2.0717 - 3.4992i
+
+%g'(x) would be imaginary, which is probably why this converged to an imaginary number
+FixedPoint
+
+output =
+
+using (x^3)/cos(x)
+
+
+steps =
+
+     7
+
+
+x =
+
+   2.8816e-61
+
+%Converged to 0 with x0=.8
+%0 is a root of the function x^3=x*cos(x), so convergence makes sense
+FixedPoint
+
+output =
+
+using x-((x^2-cos(x))/(2*x+sin(x)))
+
+
+steps =
+
+     4
+
+
+x =
+
+    0.8241
+
+%Derived using Newton's method to get quadratic convergence
+%2^4 = 16 > 10, so 4 steps is accurate
+diary off

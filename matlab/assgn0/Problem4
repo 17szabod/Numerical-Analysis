@@ -1,0 +1,3 @@
+plot(ssolve(10, 0.1, 30)); title('ssolve(10, 0.1, 30)'); print -dps Problem4a
+plot(ssolve(2, -0.05, 50)); title('ssolve(2, -0.05, 50)'); print -dps Problem4b
+diary off

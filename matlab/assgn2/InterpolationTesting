@@ -1,0 +1,56 @@
+%See screenshots of plots for more detail
+%Using the basic 7 points of input
+interpolation
+
+maximalError =
+
+   1.802991113847757
+
+
+AverageError =
+
+  -0.165688705701092
+
+%Using inputs from -1 to 7 with interval 1.2867 (about 9/7)
+interpolation
+
+maximalError =
+
+   0.032654752945850
+
+
+AverageError =
+
+  -0.001813825422981
+
+%Using sin(x) (on interval [1:.5:4])
+interpolation
+
+maximalError =
+
+   5.202768887635686
+
+
+AverageError =
+
+  -0.348680070764450
+
+%Using cos(x) (on interval [1:.5:4])
+interpolation
+
+maximalError =
+
+   0.727901793639799
+
+
+AverageError =
+
+  -0.017387058441653
+
+diary off
+
+Conclusions:
+Clearly adding more points or spreading the points out to better cover
+the interval significantly decreases the error. Increasing the density of
+points on a small interval, however, has a much smaller effect on error
+than other methods. Similar results and trends emerge from other functions.
